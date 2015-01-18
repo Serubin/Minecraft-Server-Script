@@ -24,7 +24,7 @@ backup="${backup}/${name}" #sets backup location to server specific location
 
 serverStart(){
 	cd $location
-	screen -Smd $name /usr/bin/java -server -Xms500m -Xmx$RAM -XX:MaxPermSize=128M -jar $bukkit > server.log
+	screen -Sm $name /usr/bin/java -d64 -Xms500m -Xmx$ram -XX:MaxPermSize=128M -jar $serverjar > server.log
 }
 
 sendCommand(){
@@ -64,13 +64,13 @@ elif [ "$1" = "restart" ]; then
 	sendCommand "say Sever is restarting down, it will be back up in about 30 seconds" 0
 	sendCommand "stop" 12
 	echo "Starting minecraft server..."
-	start
+	serverStart
 # Starts server
 elif [ "$1" = "start" ]; then
 	if [ -f server.log.lck ]; then
 		screen -x $name
 	else
-		start
+		serverStart
 	fi
 # Saves map
 elif [ "$1" = "save" ]; then
