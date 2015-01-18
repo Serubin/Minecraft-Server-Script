@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#################################
+# Minecraft server script
+# Author: Solomon Rubin (Serubin)
+# Version 2.0
+#################################
+
 ########## CONFIGURATION ##########
 name="server" # Name of the server - configures screen name too
 location="/path/to/mc/root" # Minecraft server root folder
